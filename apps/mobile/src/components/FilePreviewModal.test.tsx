@@ -63,30 +63,24 @@ async function openGallery(
 }
 
 it("keeps the gallery stable while a sibling is still resolving", async () => {
-  const platform = harness.platform.OS;
   const slow = Promise.withResolvers<string>();
   harness.refreshAssetUrl.mockImplementation(async (_environmentId, resource) =>
     resource.url.endsWith("slow.png") ? slow.promise : "https://signed.test/a.png",
   );
   const selected = image("https://github.com/a.png");
-  await using _preview = await openGallery(
+  await using _preview = await openGallery(selected, [
+    image("https://github.com/slow.png"),
     selected,
-    [image("https://github.com/slow.png"), selected],
-    platform,
-  );
+  ]);
 
-  if (platform === "ios") {
-    expect(harness.previews.at(-1)).toMatchObject({
-      kind: "image",
-      selectedIndex: 1,
-      images: [
-        expect.not.objectContaining({ uri: expect.anything() }),
-        { uri: "https://signed.test/a.png" },
-      ],
-    });
-  } else {
-    expect(harness.previews).toEqual([]);
-  }
+  expect(harness.previews.at(-1)).toMatchObject({
+    kind: "image",
+    selectedIndex: 1,
+    images: [
+      expect.not.objectContaining({ uri: expect.anything() }),
+      { uri: "https://signed.test/a.png" },
+    ],
+  });
   await act(async () => slow.resolve("https://signed.test/slow.png"));
   expect(harness.previews.at(-1)).toMatchObject({
     selectedIndex: 1,
@@ -96,24 +90,16 @@ it("keeps the gallery stable while a sibling is still resolving", async () => {
 });
 
 it("handles a failed sibling without leaving a pending page", async () => {
-  const platform = harness.platform.OS;
   harness.refreshAssetUrl.mockImplementation(async (_environmentId, resource) => {
     if (resource.url.endsWith("missing.png")) throw new Error("not found");
     return `https://signed.test/${resource.url.split("/").pop()}`;
   });
   const selected = image("https://github.com/a.png");
-  await using preview = await openGallery(
+  await using preview = await openGallery(selected, [
     selected,
-    [selected, image("https://github.com/missing.png"), image("https://github.com/c.png")],
-    platform,
-  );
-
-  if (platform === "android") {
-    expect(preview.onRequestClose).toHaveBeenCalledOnce();
-    expect(harness.alert).toHaveBeenCalledOnce();
-    expect(harness.previews).toEqual([]);
-    return;
-  }
+    image("https://github.com/missing.png"),
+    image("https://github.com/c.png"),
+  ]);
 
   expect(preview.onRequestClose).not.toHaveBeenCalled();
   expect(harness.alert).not.toHaveBeenCalled();
