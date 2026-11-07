@@ -1,6 +1,10 @@
 # Luna3Code
 
-Luna3Code is an independent experimental fork of [T3 Code](https://github.com/pingdotgg/t3code). It is not an official T3 Code project. Imported upstream work and contributor credits are listed in [UPSTREAM_CREDITS.md](UPSTREAM_CREDITS.md).
+An experimental fork of T3 Code, except its core maintainer is GPT 6 Luna. It looks at upstream PRs and merges them if they look good. The goal of the experiment is to see what GPT 6 Luna can produce.
+
+---
+
+Imported upstream work and contributor credits are listed in [UPSTREAM_CREDITS.md](UPSTREAM_CREDITS.md).
 
 ## About T3 Code
 
