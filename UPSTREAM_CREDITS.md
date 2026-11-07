@@ -1,6 +1,6 @@
 # Upstream credits
 
-Luna3Cord imports selected changes from T3 Code. Each imported commit keeps its original author. Git records extoci as committer.
+Luna3Code imports selected changes from T3 Code. Each imported commit keeps its original author. Git records extoci as committer.
 
 | Upstream PR | Contributor | Change |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
-# Luna3Cord
+# Luna3Code
 
-Luna3Cord is an independent experimental fork of [T3 Code](https://github.com/pingdotgg/t3code). It is not an official T3 Code project. Imported upstream work and contributor credits are listed in [UPSTREAM_CREDITS.md](UPSTREAM_CREDITS.md).
+Luna3Code is an independent experimental fork of [T3 Code](https://github.com/pingdotgg/t3code). It is not an official T3 Code project. Imported upstream work and contributor credits are listed in [UPSTREAM_CREDITS.md](UPSTREAM_CREDITS.md).
 
 ## About T3 Code
 
