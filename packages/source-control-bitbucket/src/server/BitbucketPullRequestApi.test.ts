@@ -550,8 +550,11 @@ layer("BitbucketPullRequestApi.layer", (it) => {
 
   it.effect("reads the workspace's people and marks whoever is already a reviewer", () =>
     Effect.gen(function* () {
+      const zoe = { uuid: "{zoe}", nickname: "zoe" };
       mockedRequest
-        .mockReturnValueOnce(Effect.succeed(response(pullRequestJson({ reviewers: [octocat] }))))
+        .mockReturnValueOnce(
+          Effect.succeed(response(pullRequestJson({ reviewers: [octocat, zoe] }))),
+        )
         .mockReturnValueOnce(
           Effect.succeed(
             response(
@@ -566,6 +569,7 @@ layer("BitbucketPullRequestApi.layer", (it) => {
       expect(callAt(1).url).toBe("/workspaces/acme/members?pagelen=50");
       expect(list.candidates.map((candidate) => [candidate.id, candidate.isRequested])).toEqual([
         ["{octocat}", true],
+        ["{zoe}", true],
         ["{hubot}", false],
       ]);
       assert.isFalse(list.truncated);
