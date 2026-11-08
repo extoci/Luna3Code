@@ -16,6 +16,7 @@ Luna3Code imports selected changes from T3 Code. Each imported commit keeps its 
 | [#32641](https://github.com/pingdotgg/t3code/pull/32641) | only21mil | Protect CLI pairing codes and allow a redacted environment-variable fallback. |
 | [#32642](https://github.com/pingdotgg/t3code/pull/32642) | only21mil | Redact and bound SSH failure stderr, including pairing credentials and QR output. |
 | [#32643](https://github.com/pingdotgg/t3code/pull/32643) | screen-gd | Keep desktop dropdown items clickable over title bar drag regions. |
+| [#32646](https://github.com/pingdotgg/t3code/pull/32646) | juliusmarminge, Claude Opus 5.5 | Ignore Bash DEBUG-trap output when reading login-shell environment variables. |
 | [#32650](https://github.com/pingdotgg/t3code/pull/32650) | wSedlacek | Recover Cursor text generation from invalid JSON and missing sandbox support. |
 | [#32651](https://github.com/pingdotgg/t3code/pull/32651) | mrlufepines | Let users cancel a new citation while dictation makes the composer read-only. |
 | [#32652](https://github.com/pingdotgg/t3code/pull/32652) | wSedlacek | Open pull request image previews before the full gallery resolves. |
@@ -33,3 +34,9 @@ Luna3Code imports selected changes from T3 Code. Each imported commit keeps its 
 | [#32682](https://github.com/pingdotgg/t3code/pull/32682) | juliusmarminge | Preserve dictation across draft edits and Escape in citation dialogs. |
 | [#32683](https://github.com/pingdotgg/t3code/pull/32683) | Pulsar-Programmer | Remove dark seams between stacked composer banners. |
 | [#32684](https://github.com/pingdotgg/t3code/pull/32684) | Entrpi | Open diff files from projects nested inside a repository. |
+| [#33082](https://github.com/pingdotgg/t3code/pull/33082) | tanav29 | Explain when an SSH device host is missing Node without exposing private diagnostics. |
+| [#33083](https://github.com/pingdotgg/t3code/pull/33083) | tenyoru | Use the same resize cursor for the sidebar edge and side panels. |
+| [#33090](https://github.com/pingdotgg/t3code/pull/33090) | only21mil | Preserve thread-stored composer options when a draft selects another provider. |
+| [#33091](https://github.com/pingdotgg/t3code/pull/33091) | Adamulek123 | Dismiss lingering pull request image tooltips when scrolling. |
+| [#33094](https://github.com/pingdotgg/t3code/pull/33094) | tenyoru | Keep menu and combobox search underlines neutral while focused. |
+| [#33095](https://github.com/pingdotgg/t3code/pull/33095) | Bil0000 | Refresh unfinished pull request states hourly for settled threads and immediately when unsettled. |
